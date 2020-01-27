@@ -56,18 +56,28 @@ int main(){
   if (demande == 2) {
     printf("Tu veux en acheter combien ?\n");
     scanf("%d", &nombre);
+    if (nombre > epee.nombre) {
+      printf("Tu ne peux pas il n'en a pas assez !\n", );
+    }
+    else{
     epee.nombre = epee.nombre - nombre;
     printf("Tu achetes %d epees\n", nombre);
     argent = argent - (epee.prix*nombre);
     printf("Il te reste que %d pieces\n", argent);
+    }
   }
   if (demande == 3) {
     printf("Tu veux en acheter combien ?\n");
     scanf("%d", &nombre );
+    if (nombre > fleches.nombre) {
+      printf("Tu ne peux pas il n'en a pas assé\n");
+    }
+    else{
     fleches.nombre = fleches.nombre - nombre;
     printf("Tu achete %d fleches\n", nombre);
     argent = argent - (fleches.prix*nombre);
     printf("Il te reste que %d pieces\n", argent);
+  }
   }
   if (demande == 4) {
     printf("Tu veux en acheter combien ?\n");
