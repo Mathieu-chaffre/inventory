@@ -19,6 +19,9 @@ marchandise_a_vendre epee = {"epee", 0,10};
 marchandise_a_vendre fleches = {"fleches",0,2};
 marchandise_a_vendre poison = {"poison",10,30};
 
+maFonction(inventaire monItem){
+  monItem.nombre;
+}
 
 int demande;
 int nombre;
