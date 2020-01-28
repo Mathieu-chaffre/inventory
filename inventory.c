@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <string.h> 
 
 struct Marchandise_a_vendre{
   char nom[8];
@@ -14,6 +15,7 @@ marchandise_a_vendre viande = {"viande", 0,5,0};
 marchandise_a_vendre epee = {"epee", 0,10,0};
 marchandise_a_vendre fleches = {"fleches",0,2,0};
 marchandise_a_vendre poison = {"poison",10,30,0};
+marchandise_a_vendre produit = {"",0,0,0};
 
 
 int demande;
@@ -52,7 +54,12 @@ void achat( marchandise_a_vendre* marchandise, marchandise_a_vendre test) {
 int main(){
   random();
   while (choix_joueur == 1) {
-    printf("Que veux tu acheter au marchands ? Il lui reste %d %s au prix de %d pieces , %d %s au prix de %d pieces, %d %s au prix de %d pieces, %d %s au prix de %d pieces. \n", viande.nombre, viande.nom,viande.prix, epee.nombre, epee.nom,epee.prix, fleches.nombre, fleches.nom, fleches.prix, poison.nombre, poison.nom,poison.prix );
+    if (ajout == 1) {
+      printf("Que veux tu acheter au marchands ? Il lui reste %d %s au prix de %d pieces , %d %s au prix de %d pieces, %d %s au prix de %d pieces, %d %s au prix de %d pieces.\n", viande.nombre, viande.nom,viande.prix, epee.nombre, epee.nom,epee.prix, fleches.nombre, fleches.nom, fleches.prix, poison.nombre, poison.nom,poison.prix  );
+    }
+    else if(ajout == 2){
+      printf("Que veux tu acheter au marchands ? Il lui reste %d %s au prix de %d pieces , %d %s au prix de %d pieces, %d %s au prix de %d pieces, %d %s au prix de %d pieces, %d %s au prix de %d pieces.\n", viande.nombre, viande.nom,viande.prix, epee.nombre, epee.nom,epee.prix, fleches.nombre, fleches.nom, fleches.prix, poison.nombre, poison.nom,poison.prix, produit.nombre, produit.nom, produit.prix );
+    }
     scanf("%d", &demande);
     if (demande == 1) {
       printf("tu prends de la viande tu en veux combien ?\n");
@@ -85,7 +92,14 @@ int main(){
   }
   if (choix_joueur == 2) {
     printf("Tu possede: \n - %d %s \n -%d %s \n -%d %s \n - %d %s \n ",viande.inventaire, viande.nom, fleches.inventaire, fleches.nom, poison.inventaire, poison.nom, epee.inventaire, epee.nom );
-    scanf("%d",&choix_joueur );
+    scanf("%d",&choix_joueur )
+
+  }
+  if (choix_joueur == 3) {
+    printf("Tu peux creer un objet\n");
+    char nom_objet[] = "";
+    printf("donne le nom de l'objet ?\n");
+    scanf("%s", nom_objet);
 
   }
 
