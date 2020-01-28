@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-#include <string.h> 
+#include <string.h>
 
 struct Marchandise_a_vendre{
   char nom[8];
@@ -22,6 +22,7 @@ int demande;
 int nombre;
 int piece = 500;
 int choix_joueur = 1;
+int ajout=0;
 
 void random(){
   srand(time(NULL));
@@ -92,14 +93,17 @@ int main(){
   }
   if (choix_joueur == 2) {
     printf("Tu possede: \n - %d %s \n -%d %s \n -%d %s \n - %d %s \n ",viande.inventaire, viande.nom, fleches.inventaire, fleches.nom, poison.inventaire, poison.nom, epee.inventaire, epee.nom );
-    scanf("%d",&choix_joueur )
+    scanf("%d",&choix_joueur );
 
   }
   if (choix_joueur == 3) {
+    ajout = 1;
     printf("Tu peux creer un objet\n");
     char nom_objet[] = "";
     printf("donne le nom de l'objet ?\n");
     scanf("%s", nom_objet);
+    strcpy(nom_objet, produit.nom);
+    printf("%s\n", produit.nom );
 
   }
 
