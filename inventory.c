@@ -101,7 +101,7 @@ int main(){
       printf("Tu peux creer un objet\n");
       char nom_objet[40] = "";
       printf("donne le nom de l'objet ?\n");
-      scanf("%s", nom_objet);
+      scanf("%s", &nom_objet);
       strcpy(produit.nom, nom_objet);
       printf("Tu veux quel nombre que possedera le vendeur ?\n");
       scanf("%d", &nombre);
