@@ -8,11 +8,12 @@ int compteur = 2;
 int loop=1;
 int demande = 0;
 int loop_demande = 0;
+int test_alphabet;
 
 
 struct Objet{
   int classement;
-  char nom[20];
+  char nom[50];
   int nombre;
   int prix;
   int inventaire;
@@ -23,8 +24,11 @@ typedef struct Objet objet;
 
 
 
-void alphabet(int * ){
-  
+void alphabet(objet * marchandise_1 , objet * marchandise_2 ){
+  int save;
+  char save_nom[40];
+  test_alphabet = strncmp( &marchandise_1, 
+
 }
 
 
