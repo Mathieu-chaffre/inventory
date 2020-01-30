@@ -56,6 +56,8 @@ void achat( marchandise_a_vendre* marchandise, marchandise_a_vendre test) {
 int main(){
   random();
   while (fin == 1) {
+
+    //choix magasin
     if (ajout == 1) {
       printf("Que veux tu acheter au marchands ? Il lui reste %d %s au prix de %d pieces , %d %s au prix de %d pieces, %d %s au prix de %d pieces, %d %s au prix de %d pieces.\n", viande.nombre, viande.nom,viande.prix, epee.nombre, epee.nom,epee.prix, fleches.nombre, fleches.nom, fleches.prix, poison.nombre, poison.nom,poison.prix  );
     }
@@ -92,11 +94,14 @@ int main(){
       scanf("%d",&choix_joueur );
     }
     if (choix_joueur == 2) {
+
+      // choix qui affiche l'inventaire
       printf("Tu possede: \n - %d %s \n -%d %s \n -%d %s \n - %d %s \n ",viande.inventaire, viande.nom, fleches.inventaire, fleches.nom, poison.inventaire, poison.nom, epee.inventaire, epee.nom );
       scanf("%d",&choix_joueur );
 
     }
     if (choix_joueur == 3) {
+      //choix permettant de créer un item
       ajout = 2;
       printf("Tu peux creer un objet\n");
       char nom_objet[40] = "";
@@ -111,8 +116,9 @@ int main(){
       produit.prix = nombre;
       scanf("%d", &choix_joueur );
     }
-    if (viande.nombre == 0 && epee.nombre == 0 && fleches.nombre==0 && poison.nombre == 0 && produit.nombre ==0) {
+    if (viande.nombre == 0 && epee.nombre == 0 && fleches.nombre==0 && poison.nombre == 0 && produit.nombre ==0 || piece < fleches.prix) {
       fin == 0;
+      printf("c'est tout\n");
     }
   }
 
