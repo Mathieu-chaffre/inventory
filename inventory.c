@@ -8,14 +8,15 @@ struct Marchandise_a_vendre{
   int nombre;
   int prix;
   int inventaire;
+  int classement;
 };
 
 typedef struct Marchandise_a_vendre marchandise_a_vendre;
-marchandise_a_vendre viande = {"viande", 0,5,0};
-marchandise_a_vendre epee = {"epee", 0,10,0};
-marchandise_a_vendre fleches = {"fleches",0,2,0};
-marchandise_a_vendre poison = {"poison",10,30,0};
-marchandise_a_vendre produit = {"",0,0,0};
+marchandise_a_vendre viande = {"viande", 0,5,0,4};
+marchandise_a_vendre epee = {"epee", 0,10,0,1};
+marchandise_a_vendre fleches = {"fleches",0,2,0,2};
+marchandise_a_vendre poison = {"poison",10,30,0,3};
+marchandise_a_vendre produit = {"",0,0,0,0};
 
 
 int demande;
