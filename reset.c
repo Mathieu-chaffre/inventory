@@ -4,15 +4,21 @@
 #include <string.h>
 
 
-int compteur = 2;
+int compteur = 3;
 int loop=1;
 int demande = 0;
-int loop_demande = 0;
+int  loop_2= 0;
+int fin =1;
+int piece = 5000;
+int choix_joueur;
+int nombre;
+int demande_2;
+
 
 
 struct Objet{
   int classement;
-  char nom[20];
+  char nom[50];
   int nombre;
   int prix;
   int inventaire;
@@ -23,8 +29,39 @@ typedef struct Objet objet;
 
 
 
-void alphabet(int * ){
-  
+void alphabet(objet * marchandise_1 , objet * marchandise_2 ){
+  int save;
+  char save_nom[40];
+  int test_alphabet;
+  test_alphabet = strncmp( (*marchandise_1).nom, (*marchandise_2).nom, 20);
+  if (test_alphabet > 0) {
+    save = (*marchandise_2).nombre;
+    (*marchandise_2).nombre = (*marchandise_1).nombre;
+    (*marchandise_1).nombre = save;
+
+
+    strcpy(save_nom, (*marchandise_2).nom);
+    strcpy((*marchandise_2).nom, (*marchandise_1).nom);
+    strcpy((*marchandise_1).nom,save_nom);
+
+    save = (*marchandise_2).inventaire;
+    (*marchandise_2).inventaire = (*marchandise_1).inventaire;
+    (*marchandise_1).inventaire = save;
+
+    save = (*marchandise_2).prix;
+    (*marchandise_2).prix = (*marchandise_1).prix;
+    (*marchandise_1).prix = save;
+
+
+
+
+    loop_2 = 0;
+
+  }
+  else{
+    loop_2 = 1;
+  }
+
 }
 
 
@@ -35,17 +72,23 @@ int main(){
   objet tableau[109];
   tableau[0].classement = 1;
   strcpy(tableau[0].nom, "fleches");
-  srand(time(NULL));
-  tableau[0].nombre =rand()%80+1;
+  tableau[0].nombre = 10;
   tableau[0].prix = 10;
   tableau[0].inventaire = 0;
 
-  tableau[1].classement = 1;
+  tableau[1].classement = 2;
   strcpy(tableau[1].nom, "epee");
-  srand(time(NULL));
-  tableau[1].nombre =rand()%10+1;
-  tableau[1].prix = 10;
+  tableau[1].nombre =20;
+  tableau[1].prix = 40;
   tableau[1].inventaire = 0;
+
+
+tableau[2].classement = 3;
+  strcpy(tableau[2].nom, "maillot_chelsea");
+  tableau[2].nombre =20;
+  tableau[2].prix = 30;
+  tableau[2].inventaire = 0;
+
 
   while (fin == 1) {
     printf("Que veux tu faire /1 inventaire /2 magasin /3 création ?\n");
@@ -56,14 +99,42 @@ int main(){
       break;
       case 2:
         printf("Tu rentre dans le magasin de Chelsea.\n");
-          while (loop_demande == 0) {
-            for (i = 0; i <= compteur; i++) {
+          while (loop_2 == 0) {
+            for ( int i = 0; i < compteur-1; i++) {
               alphabet(&tableau[i], &tableau[i+1]);
             }
           }
+          for(int i = 0; i < compteur; i++){
+            printf("[%d] %s :  il en a %d  a %d $\n",tableau[i].classement, tableau[i].nom, tableau[i].nombre , tableau[i].prix );
+          }
+
+            printf("Tu veux quoi ?\n");
+            scanf("%d", &demande_2);
+            demande_2 -=1;
+            printf("Tu en veux combien ?\n");
+            scanf("%d", &nombre);
+            if(nombre <= tableau[demande_2].nombre && piece > (tableau[demande_2].prix*nombre)){
+              printf("tu choisi %s\n", tableau[demande_2].nom);
+            tableau[demande_2].inventaire += nombre;
+            tableau[demande_2].nombre -= nombre;
+            piece -= tableau[demande_2].prix*nombre;
+            printf("Tu as acheté %d %s au prix de %d\n", nombre, tableau[demande_2].nom, (tableau[demande_2].prix*nombre) );
+            }
+            else if(piece < (tableau[demande_2].prix*nombre) ){
+              printf("Tu n'as pas assez d'argent\n");
+            }
+            else if(nombre > tableau[demande_2].nombre){
+              printf("Le vendeur n'a pas tout ça !\n");
+            }
+
+
+
       break;
       case 3:
         printf("tu va créer un objet chez le shop Chelsea\n");
+      break;
+      case 4:
+      fin = 0;
       break;
     }
   }
