@@ -13,6 +13,7 @@ int piece = 5000;
 int choix_joueur;
 int nombre;
 int demande_2;
+char nom_objet[40];
 
 
 
@@ -96,6 +97,14 @@ tableau[2].classement = 3;
     switch (demande) {
       case 1:
         printf("Tu rentre dans l'inventaire\n");
+        while (loop_2 == 0) {
+            for ( int i = 0; i < compteur-1; i++) {
+              alphabet(&tableau[i], &tableau[i+1]);
+            }
+          }
+          for(int i = 0; i < compteur; i++){
+            printf("[%d] %s :  tu en as %d\n",tableau[i].classement, tableau[i].nom, tableau[i].inventaire );
+          }
       break;
       case 2:
         printf("Tu rentre dans le magasin de Chelsea.\n");
@@ -132,6 +141,21 @@ tableau[2].classement = 3;
       break;
       case 3:
         printf("tu va créer un objet chez le shop Chelsea\n");
+
+        compteur +=1;
+        int compteur_2 = compteur-1;
+        tableau[compteur_2].classement = compteur_2+1;
+        printf("Donne un nom au nouvel objet.\n");
+        scanf("%s", &nom_objet);
+        printf("%s", nom_objet);
+        strcpy(tableau[compteur_2].nom, nom_objet);
+        printf("Combien d'exemplaire ?\n");
+        scanf("%d", &nombre);
+        tableau[compteur_2].nombre = nombre;
+        printf("Quel prix ?\n");
+        scanf("%d", &nombre);
+        tableau[compteur_2].prix = nombre;
+
       break;
       case 4:
       fin = 0;
