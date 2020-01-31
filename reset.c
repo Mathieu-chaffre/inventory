@@ -13,7 +13,7 @@ int piece = 5000;
 int choix_joueur;
 int nombre;
 int demande_2;
-char nom_objet[40];
+
 
 
 
@@ -34,7 +34,7 @@ void alphabet(objet * marchandise_1 , objet * marchandise_2 ){
   int save;
   char save_nom[40];
   int test_alphabet;
-  test_alphabet = strncmp( (*marchandise_1).nom, (*marchandise_2).nom, 20);
+  test_alphabet = strcmp( (*marchandise_1).nom, (*marchandise_2).nom);
   if (test_alphabet > 0) {
     save = (*marchandise_2).nombre;
     (*marchandise_2).nombre = (*marchandise_1).nombre;
@@ -104,6 +104,7 @@ int main(){
           while (loop_2 == 0) {
             for ( int i = 0; i < compteur-1; i++) {
               alphabet(&tableau[i], &tableau[i+1]);
+              printf("%d\n", i );
             }
           }
           for(int i = 0; i < compteur; i++){
@@ -139,7 +140,8 @@ int main(){
         int compteur_2 = compteur-1;
         tableau[compteur_2].classement = compteur_2+1;
         printf("Donne un nom au nouvel objet.\n");
-        scanf("%s", &nom_objet[40]);
+        char nom_objet[40];
+        scanf("%s", &nom_objet);
         printf("%s", nom_objet);
         strcpy(tableau[compteur_2].nom, nom_objet);
         printf("Combien d'exemplaire ?\n");
