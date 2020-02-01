@@ -96,9 +96,7 @@ int main(){
             for ( int i = 0; i < compteur-1; i++) {
               alphabet(&tableau[i], &tableau[i+1]);
             }
-            printf("%d", loop_2);
           }
-          printf("%d", loop_2);
           for(int i = 0; i < compteur; i++){
             printf("[%d] %s :  il en a %d  a %d $\n",tableau[i].classement, tableau[i].nom, tableau[i].nombre , tableau[i].prix );
           }
@@ -111,9 +109,7 @@ int main(){
             for ( int i = 0; i < compteur-1; i++) {
               alphabet(&tableau[i], &tableau[i+1]);
             }
-            printf("%d", loop_2);
           }
-          printf("%d", loop_2);
           for(int i = 0; i < compteur; i++){
             printf("[%d] %s :  il en a %d  a %d $\n",tableau[i].classement, tableau[i].nom, tableau[i].nombre , tableau[i].prix );
           }
