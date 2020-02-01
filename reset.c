@@ -56,11 +56,11 @@ void alphabet(objet * marchandise_1 , objet * marchandise_2 ){
 
 
 
-    loop_2 = 0;
+    loop_2 = loop_2 -(compteur+2);
 
   }
   else{
-    loop_2 = 1;
+    loop_2 += 1;
   }
 
 }
@@ -90,23 +90,30 @@ int main(){
     switch (demande) {
       case 1:
         printf("Tu rentre dans l'inventaire\n");
-        while (loop_2 == 0) {
+        loop_2 = loop_2-compteur;
+          while (loop_2 <= 0) {
+
             for ( int i = 0; i < compteur-1; i++) {
               alphabet(&tableau[i], &tableau[i+1]);
             }
+            printf("%d", loop_2);
           }
+          printf("%d", loop_2);
           for(int i = 0; i < compteur; i++){
-            printf("[%d] %s :  tu en as %d\n",tableau[i].classement, tableau[i].nom, tableau[i].inventaire );
+            printf("[%d] %s :  il en a %d  a %d $\n",tableau[i].classement, tableau[i].nom, tableau[i].nombre , tableau[i].prix );
           }
       break;
       case 2:
         printf("Tu rentre dans le magasin de Chelsea.\n");
-          while (loop_2 == 0) {
+         loop_2 = loop_2-compteur;
+          while (loop_2 <= 0) {
+
             for ( int i = 0; i < compteur-1; i++) {
               alphabet(&tableau[i], &tableau[i+1]);
-              printf("%d\n", i );
             }
+            printf("%d", loop_2);
           }
+          printf("%d", loop_2);
           for(int i = 0; i < compteur; i++){
             printf("[%d] %s :  il en a %d  a %d $\n",tableau[i].classement, tableau[i].nom, tableau[i].nombre , tableau[i].prix );
           }
@@ -141,7 +148,7 @@ int main(){
         tableau[compteur_2].classement = compteur_2+1;
         printf("Donne un nom au nouvel objet.\n");
         char nom_objet[40];
-        scanf("%s", &nom_objet);
+        scanf("%s", nom_objet);
         printf("%s", nom_objet);
         strcpy(tableau[compteur_2].nom, nom_objet);
         printf("Combien d'exemplaire ?\n");
@@ -150,6 +157,7 @@ int main(){
         printf("Quel prix ?\n");
         scanf("%d", &nombre);
         tableau[compteur_2].prix = nombre;
+
 
       break;
       case 4:
