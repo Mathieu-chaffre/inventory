@@ -9,7 +9,7 @@ int loop=1;
 int demande = 0;
 int  loop_2= 0;
 int fin =1;
-int piece = 5000;
+int piece = 500;
 int choix_joueur;
 int nombre;
 int demande_2;
@@ -73,20 +73,23 @@ int main(){
   objet tableau[109];
   tableau[0].classement = 1;
   strcpy(tableau[0].nom, "fleches");
-  tableau[0].nombre = 10;
+  srand(time(NULL));
+  tableau[0].nombre = rand()%50+1;
   tableau[0].prix = 10;
   tableau[0].inventaire = 0;
 
   tableau[1].classement = 2;
   strcpy(tableau[1].nom, "epee");
-  tableau[1].nombre =20;
+  srand(time(NULL));
+  tableau[1].nombre =rand()%10+1;
   tableau[1].prix = 40;
   tableau[1].inventaire = 0;
 
 
   while (fin == 1) {
+    printf("Tu as : %d $ restant !\n", piece );
     printf("Que veux tu faire /1 inventaire /2 magasin /3 creation ?\n");
-    printf("N'ecrit jamais en majuscule tu risquerais de faire peur au vendeur et il ne pourrait plus classer dans l'ordre alphabetique ses produits or tu le veux !\n");
+    printf("N'ecrit jamais en majuscule tu risquerais de faire peur au vendeur\nEt il ne pourrait plus classer dans l'ordre alphabetique ses produits or tu le veux !\n");
     scanf("%d", &demande );
     switch (demande) {
       case 1:
