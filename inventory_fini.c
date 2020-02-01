@@ -86,6 +86,7 @@ int main(){
 
   while (fin == 1) {
     printf("Que veux tu faire /1 inventaire /2 magasin /3 creation ?\n");
+    printf("N'ecrit jamais en majuscule tu risquerais de faire peur au vendeur et il ne pourrait plus classer dans l'ordre alphabetique ses produits or tu le veux !\n");
     scanf("%d", &demande );
     switch (demande) {
       case 1:
@@ -130,7 +131,7 @@ int main(){
               printf("Tu n'as pas assez d'argent\n");
             }
             else if(nombre > tableau[demande_2].nombre){
-              printf("Le vendeur n'a pas tout ça !\n");
+              printf("Le vendeur n'a pas tout ca !\n");
             }
 
 
@@ -145,7 +146,7 @@ int main(){
         printf("Donne un nom au nouvel objet.\n");
         char nom_objet[40];
         scanf("%s", nom_objet);
-        printf("%s", nom_objet);
+        printf(" Le vendeur commande et recoit des %s !\n", nom_objet);
         strcpy(tableau[compteur_2].nom, nom_objet);
         printf("Combien d'exemplaire ?\n");
         scanf("%d", &nombre);
@@ -161,7 +162,5 @@ int main(){
       break;
     }
   }
-
-printf("test : %s \n", tableau[0].nom );
   return 0;
 }
