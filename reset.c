@@ -98,7 +98,7 @@ int main(){
             }
           }
           for(int i = 0; i < compteur; i++){
-            printf("[%d] %s :  il en a %d  a %d $\n",tableau[i].classement, tableau[i].nom, tableau[i].nombre , tableau[i].prix );
+            printf("[%d] %s :  tu en as %d\n",tableau[i].classement, tableau[i].nom, tableau[i].inventaire);
           }
       break;
       case 2:
